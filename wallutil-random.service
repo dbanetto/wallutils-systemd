@@ -1,0 +1,10 @@
+[Unit]
+Description=Randomly sets desktop wallpaper from ${WALLPAPER_PATH}
+Requires=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/setrandom --verbose ${WALLPAPER_PATH}
+
+[Install]
+WantedBy=multi-user.target

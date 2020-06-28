@@ -1,0 +1,10 @@
+[Unit]
+Description=Randomly sets desktop wallpaper from ${WALLPAPER_PATH}
+
+[Timer]
+OnBootSec=${STARTUP_DELAY}
+OnUnitActiveSec=${CHANGE_EVERY}
+Unit=wallutil-random.service
+
+[Install]
+WantedBy=multi-user.target
