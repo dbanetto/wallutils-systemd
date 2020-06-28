@@ -1,4 +1,4 @@
-# wallutil-*.service
+# wallutils-*.service
 
 A collection of systemd service files focused on changing wallpapers.
 

@@ -20,19 +20,19 @@ mkdir -p ~/.config/systemd/user
 
 env -i \
     WALLPAPER_PATH="${WALLPAPER_PATH}" \
-    envsubst < ./wallutil-random.service > "${INSTALL_DIR}/wallutil-random.service"
+    envsubst < ./wallutils-random.service > "${INSTALL_DIR}/wallutils-random.service"
 
 env -i \
     WALLPAPER_PATH="${WALLPAPER_PATH}" \
     CHANGE_EVERY="${CHANGE_EVERY}" \
     STARTUP_DELAY="${STARTUP_DELAY}" \
-    envsubst < ./wallutil-random.timer > "${INSTALL_DIR}/wallutil-random.timer"
+    envsubst < ./wallutils-random.timer > "${INSTALL_DIR}/wallutils-random.timer"
 
 # Check ourselves
 # Note: the `--user` part is important to validate the units against user services/targets
-systemd-analyze --user verify ${INSTALL_DIR}/wallutil-*
+systemd-analyze --user verify ${INSTALL_DIR}/wallutils-*
 
 # load units & turns it on
 systemctl daemon-reload --user
-systemctl enable --user wallutil-random.timer
-systemctl start --user wallutil-random.timer
+systemctl enable --user wallutils-random.timer
+systemctl start --user wallutils-random.timer
